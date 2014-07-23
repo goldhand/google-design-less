@@ -1,0 +1,25 @@
+// Lifts an element with box shadows
+
+@import "box-shadows.less";
+
+.lift() {
+	transition-timing-function: ease-in-out;
+	.transition-property(~'box-shadow, color');
+	.transition-duration(.25s);
+	.box-shadow-1();
+	&:hover, &:focus {
+		.box-shadow-2();
+	}
+	&:active {
+		.box-shadow-3();
+			transition-timing-function: ease-out;
+	}
+	&.active, &.active:hover, &.active:focus {
+		.box-shadow-0();
+		cursor: auto;
+		.transition-duration(.4s);
+		transition-timing-function: ease-out;
+		color: @gray-light;
+		background-color: #fff;
+	}
+}
